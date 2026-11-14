@@ -1,6 +1,6 @@
 """Append-only decision log and position ledger.
 
-The decision log is the pre-registration record: every paper trade is written
+The decision log is append-only: every paper trade is written
 down with the rule that prompted it BEFORE it executes, and entries are never
 edited or deleted - corrections are new entries. Future observations are
 therefore never counted as historical success: the log is the whole record.
@@ -67,6 +67,7 @@ class Fill:
     qty: int
     price: float
     cost_total: float  # transaction charges on this fill
+    reason: str = ""   # e.g. "strategy" or "loss-limit-liquidation"
 
 
 @dataclass

@@ -1,1 +1,183 @@
 date,decision_id,symbol,side,qty,rule,rationale
+2024-02-14,exp001-0001,MARUTI,buy,2,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-02-19,exp001-0002,SBILIFE,buy,17,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-03-11,exp001-0003,NESTLEIND,buy,19,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-03-12,exp001-0004,TITAN,buy,6,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-03-19,exp001-0005,TITAN,sell,6,sma-cross-20-60,SMA20 crossed below SMA60
+2024-03-22,exp001-0006,HDFCLIFE,buy,40,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-04-25,exp001-0007,SBILIFE,sell,17,sma-cross-20-60,SMA20 crossed below SMA60
+2024-04-26,exp001-0008,NESTLEIND,sell,19,sma-cross-20-60,SMA20 crossed below SMA60
+2024-04-30,exp001-0009,AXISBANK,buy,21,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-05-06,exp001-0010,HDFCLIFE,sell,40,sma-cross-20-60,SMA20 crossed below SMA60
+2024-05-22,exp001-0011,ADANIPORTS,buy,17,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-05-22,exp001-0012,TECHM,buy,19,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-06-24,exp001-0013,MARUTI,sell,2,sma-cross-20-60,SMA20 crossed below SMA60
+2024-06-25,exp001-0014,TATACONSUM,buy,23,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-08-09,exp001-0015,AXISBANK,sell,21,sma-cross-20-60,SMA20 crossed below SMA60
+2024-08-21,exp001-0016,BSE,buy,29,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-08-27,exp001-0017,JSWSTEEL,buy,28,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-06,exp001-0018,ADANIPORTS,sell,17,sma-cross-20-60,SMA20 crossed below SMA60
+2024-09-06,exp001-0019,HINDALCO,buy,39,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-10,exp001-0020,BAJFINANCE,buy,36,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-11,exp001-0021,GRASIM,buy,9,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-11,exp001-0022,LT,buy,7,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-16,exp001-0023,KOTAKBANK,buy,72,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-18,exp001-0024,HDFCBANK,buy,31,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-18,exp001-0025,JIOFIN,buy,75,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-20,exp001-0026,MAXHEALTH,buy,24,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-20,exp001-0027,NESTLEIND,buy,19,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-23,exp001-0028,MARUTI,buy,2,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-23,exp001-0029,ULTRACEMCO,buy,2,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-24,exp001-0030,M&M,buy,8,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-25,exp001-0031,MARUTI,buy,2,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-26,exp001-0032,AXISBANK,buy,20,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-26,exp001-0033,GRASIM,buy,9,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-09-26,exp001-0034,POWERGRID,buy,78,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-10-04,exp001-0035,TATASTEEL,buy,165,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-10-09,exp001-0036,TATACONSUM,sell,23,sma-cross-20-60,SMA20 crossed below SMA60
+2024-10-10,exp001-0037,ADANIENT,buy,8,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-10-25,exp001-0038,ADANIENT,sell,8,sma-cross-20-60,SMA20 crossed below SMA60
+2024-11-04,exp001-0039,SBIN,buy,31,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-11-11,exp001-0040,HINDALCO,sell,39,sma-cross-20-60,SMA20 crossed below SMA60
+2024-11-22,exp001-0041,EICHERMOT,buy,5,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-11-25,exp001-0042,BEL,buy,87,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-11-28,exp001-0043,LT,buy,6,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-12-03,exp001-0044,M&M,buy,8,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-12-05,exp001-0045,APOLLOHOSP,buy,3,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-12-05,exp001-0046,ETERNAL,buy,85,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-12-05,exp001-0047,TCS,buy,6,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-12-06,exp001-0048,INFY,buy,14,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-12-11,exp001-0049,POWERGRID,buy,81,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-12-12,exp001-0050,ULTRACEMCO,buy,2,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-12-13,exp001-0051,APOLLOHOSP,buy,3,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-12-17,exp001-0052,JIOFIN,buy,74,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-12-20,exp001-0053,INDIGO,buy,5,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-12-23,exp001-0054,TITAN,buy,7,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-12-26,exp001-0055,EICHERMOT,sell,5,sma-cross-20-60,SMA20 crossed below SMA60
+2024-12-27,exp001-0056,EICHERMOT,buy,5,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-12-30,exp001-0057,BAJFINANCE,buy,36,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2024-12-30,exp001-0058,DRREDDY,buy,18,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-01-02,exp001-0059,KOTAKBANK,buy,68,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-01-06,exp001-0060,SUNPHARMA,buy,13,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-01-07,exp001-0061,SBIN,sell,31,sma-cross-20-60,SMA20 crossed below SMA60
+2025-01-08,exp001-0062,TRENT,buy,3,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-01-13,exp001-0063,TRENT,sell,3,sma-cross-20-60,SMA20 crossed below SMA60
+2025-01-14,exp001-0064,MARUTI,buy,2,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-01-14,exp001-0065,TECHM,sell,19,sma-cross-20-60,SMA20 crossed below SMA60
+2025-01-20,exp001-0066,BHARTIARTL,buy,14,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-01-21,exp001-0067,BAJAJFINSV,buy,13,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-01-21,exp001-0068,ONGC,buy,99,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-03-04,exp001-0069,EICHERMOT,sell,5,sma-cross-20-60,SMA20 crossed below SMA60
+2025-03-17,exp001-0070,NTPC,buy,75,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-03-18,exp001-0071,MARUTI,sell,2,sma-cross-20-60,SMA20 crossed below SMA60
+2025-03-19,exp001-0072,BHARTIARTL,sell,14,sma-cross-20-60,SMA20 crossed below SMA60
+2025-03-19,exp001-0073,HDFCBANK,buy,28,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-03-20,exp001-0074,AXISBANK,buy,22,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-03-20,exp001-0075,COALINDIA,buy,68,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-05-27,exp001-0076,NTPC,sell,75,sma-cross-20-60,SMA20 crossed below SMA60
+2025-05-29,exp001-0077,INFY,buy,17,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-06-05,exp001-0078,HINDALCO,buy,40,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-06-05,exp001-0079,SHRIRAMFIN,buy,40,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-06-20,exp001-0080,CIPLA,buy,17,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-06-24,exp001-0081,BAJAJFINSV,sell,13,sma-cross-20-60,SMA20 crossed below SMA60
+2025-06-27,exp001-0082,KOTAKBANK,buy,60,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-06-30,exp001-0083,GRASIM,buy,9,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-07-01,exp001-0084,EICHERMOT,buy,4,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-07-01,exp001-0085,JSWSTEEL,buy,25,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-07-14,exp001-0086,AXISBANK,sell,22,sma-cross-20-60,SMA20 crossed below SMA60
+2025-07-17,exp001-0087,BAJAJFINSV,buy,12,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-08-01,exp001-0088,BAJAJFINSV,sell,12,sma-cross-20-60,SMA20 crossed below SMA60
+2025-08-04,exp001-0089,KOTAKBANK,sell,60,sma-cross-20-60,SMA20 crossed below SMA60
+2025-08-08,exp001-0090,MARUTI,buy,2,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-08-21,exp001-0091,LT,buy,7,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-09-02,exp001-0092,HDFCBANK,sell,28,sma-cross-20-60,SMA20 crossed below SMA60
+2025-09-03,exp001-0093,COALINDIA,buy,74,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-09-15,exp001-0094,LT,sell,7,sma-cross-20-60,SMA20 crossed below SMA60
+2025-09-17,exp001-0095,BAJAJFINSV,buy,13,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-09-17,exp001-0096,LT,buy,7,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-09-26,exp001-0097,ADANIPORTS,buy,20,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-09-26,exp001-0098,AXISBANK,buy,24,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-09-29,exp001-0099,BEL,buy,69,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-09-29,exp001-0100,NTPC,buy,84,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-09-30,exp001-0101,ADANIENT,buy,11,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-10-01,exp001-0102,BHARTIARTL,buy,15,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-10-07,exp001-0103,ONGC,buy,122,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-10-07,exp001-0104,SHRIRAMFIN,buy,42,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-10-08,exp001-0105,KOTAKBANK,buy,65,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-10-14,exp001-0106,SUNPHARMA,buy,16,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-10-15,exp001-0107,POWERGRID,buy,99,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-10-23,exp001-0108,RELIANCE,buy,19,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-10-24,exp001-0109,TITAN,buy,7,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-10-27,exp001-0110,BSE,buy,11,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-10-27,exp001-0111,CIPLA,buy,17,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-10-27,exp001-0112,HCLTECH,buy,19,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-10-27,exp001-0113,HDFCBANK,buy,28,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-10-28,exp001-0114,INFY,buy,19,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-10-29,exp001-0115,SBILIFE,buy,14,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-10-31,exp001-0116,ITC,buy,69,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-11-10,exp001-0117,ASIANPAINT,buy,10,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-11-12,exp001-0118,INDIGO,buy,4,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-11-26,exp001-0119,MARUTI,sell,2,sma-cross-20-60,SMA20 crossed below SMA60
+2025-11-28,exp001-0120,COALINDIA,sell,74,sma-cross-20-60,SMA20 crossed below SMA60
+2025-11-28,exp001-0121,HDFCLIFE,buy,36,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-12-01,exp001-0122,COALINDIA,buy,78,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-12-09,exp001-0123,INDIGO,sell,4,sma-cross-20-60,SMA20 crossed below SMA60
+2025-12-11,exp001-0124,DRREDDY,buy,21,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-12-12,exp001-0125,MARUTI,buy,1,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2025-12-15,exp001-0126,COALINDIA,sell,78,sma-cross-20-60,SMA20 crossed below SMA60
+2025-12-17,exp001-0127,COALINDIA,buy,74,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-01-12,exp001-0128,HDFCLIFE,sell,36,sma-cross-20-60,SMA20 crossed below SMA60
+2026-01-13,exp001-0129,ICICIBANK,buy,19,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-01-13,exp001-0130,ULTRACEMCO,buy,2,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-01-30,exp001-0131,MARUTI,sell,1,sma-cross-20-60,SMA20 crossed below SMA60
+2026-02-10,exp001-0132,EICHERMOT,sell,4,sma-cross-20-60,SMA20 crossed below SMA60
+2026-02-10,exp001-0133,POWERGRID,buy,93,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-02-11,exp001-0134,TMPV,buy,71,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-02-13,exp001-0135,EICHERMOT,buy,3,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-03-11,exp001-0136,ICICIBANK,sell,19,sma-cross-20-60,SMA20 crossed below SMA60
+2026-03-18,exp001-0137,BSE,buy,8,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-03-23,exp001-0138,EICHERMOT,sell,3,sma-cross-20-60,SMA20 crossed below SMA60
+2026-03-30,exp001-0139,BSE,sell,8,sma-cross-20-60,SMA20 crossed below SMA60
+2026-04-01,exp001-0140,BSE,buy,8,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-04-16,exp001-0141,TITAN,buy,6,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-04-17,exp001-0142,TATASTEEL,buy,132,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-04-22,exp001-0143,HINDALCO,buy,26,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-04-24,exp001-0144,TRENT,buy,9,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-04-27,exp001-0145,ADANIPORTS,buy,17,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-04-27,exp001-0146,ASIANPAINT,buy,11,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-04-27,exp001-0147,NESTLEIND,buy,19,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-04-28,exp001-0148,ADANIENT,buy,11,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-04-29,exp001-0149,BEL,buy,65,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-04-29,exp001-0150,JSWSTEEL,buy,22,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-04-30,exp001-0151,AXISBANK,buy,22,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-04-30,exp001-0152,BAJAJ-AUTO,buy,2,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-04-30,exp001-0153,LT,buy,7,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-06-01,exp001-0154,POWERGRID,sell,93,sma-cross-20-60,SMA20 crossed below SMA60
+2026-06-02,exp001-0155,INDIGO,buy,6,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-06-29,exp001-0156,COALINDIA,sell,74,sma-cross-20-60,SMA20 crossed below SMA60
+2026-07-01,exp001-0157,HDFCBANK,buy,36,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-07-01,exp001-0158,SHRIRAMFIN,buy,27,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-07-01,exp001-0159,SBIN,buy,27,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-07-06,exp001-0160,BAJAJ-AUTO,sell,2,sma-cross-20-60,SMA20 crossed below SMA60
+2026-07-08,exp001-0161,BAJAJFINSV,buy,15,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-07-10,exp001-0162,M&M,buy,9,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-07-14,exp001-0163,BSE,sell,8,sma-cross-20-60,SMA20 crossed below SMA60
+2026-07-15,exp001-0164,TECHM,buy,19,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-07-17,exp001-0165,ULTRACEMCO,buy,2,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-08-07,exp001-0166,HDFCBANK,sell,36,sma-cross-20-60,SMA20 crossed below SMA60
+2026-08-12,exp001-0167,KOTAKBANK,buy,73,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-08-19,exp001-0168,HINDALCO,buy,27,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-09-04,exp001-0169,INDIGO,sell,6,sma-cross-20-60,SMA20 crossed below SMA60
+2026-09-08,exp001-0170,ULTRACEMCO,sell,2,sma-cross-20-60,SMA20 crossed below SMA60
+2026-09-09,exp001-0171,APOLLOHOSP,buy,3,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-09-11,exp001-0172,APOLLOHOSP,sell,3,sma-cross-20-60,SMA20 crossed below SMA60
+2026-09-22,exp001-0173,COALINDIA,buy,63,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-09-25,exp001-0174,TECHM,sell,19,sma-cross-20-60,SMA20 crossed below SMA60
+2026-09-28,exp001-0175,HINDALCO,sell,27,sma-cross-20-60,SMA20 crossed below SMA60
+2026-09-29,exp001-0176,ADANIPORTS,buy,14,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-10-05,exp001-0177,DRREDDY,buy,21,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-10-14,exp001-0178,HDFCLIFE,buy,48,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-10-22,exp001-0179,HDFCLIFE,sell,48,sma-cross-20-60,SMA20 crossed below SMA60
+2026-10-23,exp001-0180,TECHM,buy,14,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing
+2026-10-29,exp001-0181,COALINDIA,sell,63,sma-cross-20-60,SMA20 crossed below SMA60
+2026-10-30,exp001-0182,BSE,buy,7,sma-cross-20-60,SMA20 crossed above SMA60; 25% sizing

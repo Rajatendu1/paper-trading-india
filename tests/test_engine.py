@@ -69,23 +69,50 @@ class TestExecution(unittest.TestCase):
 
 
 class TestLossLimit(unittest.TestCase):
-    def test_halt_on_breach(self):
+    def test_halt_then_liquidate_next_open(self):
         cfg = Config(max_loss_inr=50.0)
         falling = bars([
             ("2026-11-10", 100.0, 101.0, 99.0, 100.0, 1000),
             ("2026-11-11", 100.0, 100.5, 89.0, 90.0, 1500),
             ("2026-11-12", 95.0, 95.5, 94.0, 95.0, 800),
+            ("2026-11-13", 92.0, 93.0, 91.0, 92.5, 700),
         ])
         eng = PaperEngine(cfg, {"SYM": falling})
         result = eng.run([
             Decision("2026-11-10", "b1", "SYM", "buy", 10, "rule-1", "enter"),
             Decision("2026-11-11", "b2", "SYM", "buy", 10, "rule-1", "add"),
         ])
-        # equity on 11-11 close: cash 98997.81 + 10*90 = 99897.81, loss 102.19
+        # breach at 11-11 close (equity 99897.81, loss 102.19 >= 50)
         self.assertEqual(result.halted_on, "2026-11-11")
-        # the second buy (would execute 11-12) must NOT have executed post-halt
-        self.assertEqual(len(eng.ledger.fills), 1)
-        self.assertEqual(eng.ledger.positions["SYM"].qty, 10)
+        # forced liquidation at next trading day's open (11-12)
+        self.assertEqual(result.liquidated_on, "2026-11-12")
+        liq = eng.ledger.fills[-1]
+        self.assertEqual(liq.reason, "loss-limit-liquidation")
+        self.assertEqual(liq.side, "sell")
+        self.assertEqual(liq.qty, 10)
+        self.assertAlmostEqual(liq.price, 95.0 * (1 - 0.001))  # open - slippage
+        # flat afterwards; the queued strategy buy never executed
+        self.assertEqual(eng.ledger.positions["SYM"].qty, 0)
+        self.assertEqual(len(eng.ledger.fills), 2)
+        self.assertTrue(any("halted" in why for _, why in result.skipped))
+        # equity is cash-only from liquidation day onward
+        self.assertAlmostEqual(result.marks[-1].equity, result.marks[-1].cash)
+
+    def test_limit_is_not_a_hard_cap(self):
+        # price gaps down overnight: liquidation fills well below the limit
+        cfg = Config(max_loss_inr=50.0)
+        gapping = bars([
+            ("2026-11-10", 100.0, 101.0, 99.0, 100.0, 1000),
+            ("2026-11-11", 100.0, 100.5, 89.0, 90.0, 1500),   # breach at close
+            ("2026-11-12", 50.0, 51.0, 49.0, 50.0, 5000),     # overnight gap
+        ])
+        eng = PaperEngine(cfg, {"SYM": gapping})
+        result = eng.run([
+            Decision("2026-11-10", "b1", "SYM", "buy", 10, "rule-1", "enter")])
+        self.assertEqual(result.halted_on, "2026-11-11")
+        self.assertEqual(result.liquidated_on, "2026-11-12")
+        final_loss = 100_000.0 - result.final_equity
+        self.assertGreater(final_loss, 50.0)  # loss exceeded the limit: documented, not a cap
 
 
 if __name__ == "__main__":

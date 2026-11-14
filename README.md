@@ -38,8 +38,10 @@ Set by the owner and public on purpose:
   and worse slippage; live results are often worse than paper results.
 - Daily bars cannot say what happened inside a day, so intraday strategies
   are out of scope for this data.
-- A loss limit in a simulator is exact; in real markets prices can gap past
-  any limit.
+- The Rs 40,000 loss limit is NOT a hard cap, even in simulation: the rule
+  liquidates open positions at the NEXT trading day's open after a breach,
+  and overnight gaps can take losses past the limit, in simulation and
+  live.
 - Past simulations, including any backtest run with this code, say nothing
   about future outcomes. The decision log is append-only and decisions are
   recorded before they execute, so future observations are never counted as
@@ -67,9 +69,11 @@ Set by the owner and public on purpose:
 ## Layout
 
 ```
-papertrading/   config, costs, ledger (append-only log), data loaders, engine, report
-scripts/        fetch_bhavcopy.py - cache one day's official archive file
-decisions/      log.csv - the pre-registered decision record
+papertrading/   config, costs, ledger (append-only log), data loaders, engine, strategy, report
+docs/           experiment.md - EXP-001 rules, specified before the first run
+experiments/    log.md - append-only register of every run and its result, good or bad
+scripts/        fetch_bhavcopy.py, run_experiment.py
+decisions/      log.csv - append-only decision record (written before execution)
 tests/          stdlib unittest suite, offline, synthetic data
 ```
 
@@ -85,6 +89,16 @@ No dependencies are needed for the core or the tests.
 
 ## Status
 
-v0.1.0 - tracker core built and unit-tested on synthetic data. No trading
-rules are implemented yet; the strategy rules that will generate decisions
-are the next milestone and will be documented here before use.
+v0.2.0-dev (LOCAL and preliminary; not investment evidence). Tracker core
+unit-tested (31 tests, offline). EXP-001 (SMA 20/60 crossover, NIFTY 50
+universe, 2023-11-15 to 2026-11-13) has run once under rules specified
+before the run in docs/experiment.md (a local specification, not an
+independent registration). In that single local simulation the strategy
+returned +11.15% net of assumed costs while the NIFTY 50 price index
+returned +27.8% over the same period - the strategy underperformed simply
+holding the index, with a Rs 14,627 max drawdown and the loss limit never
+hit. 86 of 182 generated decisions were skipped for insufficient cash (see
+experiments/log.md). Comparability caveats (adjustment, dividends, costs,
+survivorship bias) are listed in docs/experiment.md and experiments/log.md.
+One local simulation says nothing about the future; no result here is a
+promise of profit or reliable income.
