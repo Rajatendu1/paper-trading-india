@@ -1,4 +1,4 @@
-# EXP-001: Swing SMA-crossover on NIFTY 50 stocks (pre-registration)
+# EXP-001: Swing SMA-crossover on NIFTY 50 stocks (rules specified before the run)
 
 Written BEFORE the first run, on 2026-11-14. Any rule change after seeing
 results is a new experiment entry in `experiments/log.md`, never an edit of
@@ -7,7 +7,7 @@ this one.
 ## Hypothesis
 
 A simple, fully mechanical trend-following rule on liquid large-cap Indian
-stocks, after realistic costs, may beat doing nothing. Whether it beats
+stocks, after modeled costs, may beat doing nothing. Whether it beats
 buying and holding NIFTY 50 is an open question this experiment measures.
 We do NOT claim in advance that it will make money.
 
