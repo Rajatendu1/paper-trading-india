@@ -70,10 +70,10 @@ Set by the owner and public on purpose:
 
 ```
 papertrading/   config, costs, ledger (append-only log), data loaders, engine, strategy, report
-docs/           experiment.md - EXP-001 pre-registration (rules frozen before the first run)
+docs/           experiment.md - EXP-001 rules, specified before the first run
 experiments/    log.md - append-only register of every run and its result, good or bad
 scripts/        fetch_bhavcopy.py, run_experiment.py
-decisions/      log.csv - the pre-registered decision record
+decisions/      log.csv - append-only decision record (written before execution)
 tests/          stdlib unittest suite, offline, synthetic data
 ```
 
@@ -89,13 +89,16 @@ No dependencies are needed for the core or the tests.
 
 ## Status
 
-v0.2.0-dev (local; publication pending). Tracker core unit-tested (31
-tests, offline). EXP-001 (SMA 20/60 crossover, NIFTY 50 universe,
-2023-11-15 to 2026-11-13) has run ONCE under its pre-registered rules:
-the mechanical strategy returned +11.15% net of assumed costs while NIFTY
-50 buy-and-hold returned +27.8% over the same period - the strategy
-UNDERPERFORMED simply holding the index, with a Rs 14,627 max drawdown and
-the loss limit never hit. 86 of 182 generated decisions were skipped for
-insufficient cash (see experiments/log.md). This is one historical
-simulation with a survivorship-biased universe and assumed costs - it says
-nothing about the future, and no result here is a promise of profit.
+v0.2.0-dev (LOCAL and preliminary; not investment evidence). Tracker core
+unit-tested (31 tests, offline). EXP-001 (SMA 20/60 crossover, NIFTY 50
+universe, 2023-11-15 to 2026-11-13) has run once under rules specified
+before the run in docs/experiment.md (a local specification, not an
+independent registration). In that single local simulation the strategy
+returned +11.15% net of assumed costs while the NIFTY 50 price index
+returned +27.8% over the same period - the strategy underperformed simply
+holding the index, with a Rs 14,627 max drawdown and the loss limit never
+hit. 86 of 182 generated decisions were skipped for insufficient cash (see
+experiments/log.md). Comparability caveats (adjustment, dividends, costs,
+survivorship bias) are listed in docs/experiment.md and experiments/log.md.
+One local simulation says nothing about the future; no result here is a
+promise of profit or reliable income.
