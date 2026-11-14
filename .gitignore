@@ -1,0 +1,8 @@
+# NSE data is downloaded locally and never redistributed
+data/
+
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
