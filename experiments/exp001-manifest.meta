@@ -1,0 +1,4 @@
+verified_code_state: the parent commit of this provenance commit in this repository's own history (identical code and data tree except this file)
+recorded_at_utc: 2026-11-14T16:25:25Z
+recorded_outputs: final_equity=111150.78 max_drawdown=14627.16 fills=96 skips=86 bench_price_return_pct=27.8
+verification: 31 unit tests + scripts/verify_exp001.py (449 checks) all pass at that state
