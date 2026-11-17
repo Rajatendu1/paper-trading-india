@@ -52,11 +52,22 @@ class AppDataTests(unittest.TestCase):
         self.assertIn("not today's live state", timeline["current_state"])
         self.assertIn("No real-money trading is taking place.", self.data["caveats"])
 
+    def test_autonomy_policy_is_visible_and_gated(self):
+        autonomy = self.data["autonomy"]
+        self.assertEqual(autonomy["risk"]["max_loss_inr"], 40000)
+        self.assertEqual(autonomy["risk"]["max_new_buys_per_day"], 2)
+        self.assertEqual(autonomy["modes"]["delivery"]["status"], "enabled")
+        self.assertEqual(autonomy["modes"]["intraday"]["status"], "paused")
+        self.assertEqual(autonomy["modes"]["futures"]["status"], "paused")
+        self.assertEqual(autonomy["modes"]["options"]["status"], "paused")
+        self.assertIn("not a guaranteed fill", autonomy["stops"]["limit"])
+
     def test_static_app_has_no_external_dependencies(self):
         html = (ROOT / "app" / "index.html").read_text()
         js = (ROOT / "app" / "app.js").read_text()
         self.assertIn("No real-money trades", html)
         self.assertIn("Checkpoint gap visible", html)
+        self.assertIn("No autonomous trades recorded yet", html)
         self.assertIn("script-src 'self'", html)
         self.assertNotIn("https://cdn", html)
         self.assertNotIn("fetch('http", js)
