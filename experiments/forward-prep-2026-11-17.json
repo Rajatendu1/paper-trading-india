@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "status": "prepared_not_executed",
+  "decision_date": "2026-11-17",
+  "data_through": "2026-11-16",
+  "gap": {
+    "missing_checkpoint_date": "2026-11-16",
+    "label": "gap-aware continuation",
+    "honesty": "The missing 2026-11-16 forward checkpoint is not repaired. Planning starts from the verified 2026-11-13 terminal state and uses later bars only as preparation data, not as a contemporaneous mark."
+  },
+  "source_state": {
+    "as_of": "2026-11-13",
+    "cash_inr": 3264.68,
+    "positions": {
+      "ADANIPORTS": 14,
+      "TECHM": 14,
+      "BSE": 7,
+      "DRREDDY": 21
+    },
+    "source": "experiments/log.md"
+  },
+  "planning_equity_inr_reconstructed": 110783.98,
+  "portfolio_halt": false,
+  "stops_initialized": {
+    "ADANIPORTS": 1813.4143,
+    "BSE": 3729.5678,
+    "DRREDDY": 1322.784,
+    "TECHM": 1705.344
+  },
+  "decisions": [],
+  "notes": [
+    "INDIGO: buy signal rejected by policy caps",
+    "LT: buy signal rejected by policy caps",
+    "RELIANCE: buy signal rejected by policy caps",
+    "SBIN: buy signal rejected by policy caps"
+  ],
+  "symbols_checked": 50,
+  "symbols_missing_current_bar": [],
+  "limits": {
+    "mode": "delivery",
+    "delivery_status": "enabled",
+    "max_loss_inr": 40000.0,
+    "stop_rule": "daily close creates next-open decision; no guaranteed fill"
+  },
+  "not_done": [
+    "not appended to decisions/log.csv",
+    "not executed",
+    "not a broker or real-money order",
+    "not a repaired 2026-11-16 checkpoint"
+  ]
+}
