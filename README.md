@@ -65,15 +65,19 @@ Set by the owner and public on purpose:
   gitignored. Fetch one day at a time; NSE rate-limits heavy clients.
 - **Optional:** yfinance (unofficial Yahoo Finance wrapper; `.NS` tickers,
   `^NSEI` for NIFTY 50). Not required for the core tracker.
+- **Live-session quote snapshots:** local timestamped inputs only. The NSE
+  session/holiday guard and virtual fill planner are prepared but not
+  activated; no quote polling, raw quote publication, broker connection or
+  real order exists.
 
 ## Layout
 
 ```
 papertrading/   config, costs, ledger (append-only log), data loaders, engine, strategy, report, autonomy controls, forward preparation
-config/         autonomy.json - prospective virtual risk policy
-docs/           experiment.md - EXP-001 rules, specified before the first run; autonomy.md - autonomous paper-lab policy; forward.md - gap-labelled continuation boundary
+config/         autonomy.json - prospective virtual risk policy; live-session.json - prepared NSE session/quote guard
+docs/           experiment.md - EXP-001 rules, specified before the first run; autonomy.md - autonomous paper-lab policy; forward.md - gap-labelled continuation boundary; live-session.md - prepared session-execution boundary
 experiments/    log.md - append-only register of every run and its result, good or bad
-scripts/        fetch_bhavcopy.py, run_experiment.py, build_app_data.py, prepare_forward_run.py
+scripts/        fetch_bhavcopy.py, run_experiment.py, build_app_data.py, prepare_forward_run.py, prepare_live_session.py
 app/            static dashboard generated from committed EXP-001 records and hosted with GitHub Pages
 decisions/      log.csv - append-only decision record (written before execution)
 tests/          stdlib unittest suite, offline, synthetic data
@@ -93,8 +97,9 @@ No dependencies are needed for the core or the tests.
 
 ## Status
 
-v0.2.0-dev (LOCAL and preliminary; not investment evidence). Tracker core and
-dashboard data checks are unit-tested (51 tests, offline). The static app is
+v0.2.0-dev (LOCAL and preliminary; not investment evidence). Tracker core,
+forward preparation, live-session guards and dashboard data checks are
+unit-tested (59 tests, offline). The static app is
 hosted with GitHub Pages at
 https://rajatendu1.github.io/paper-trading-india/app/ as a viewer over
 committed EXP-001 records; it is not a production trading system. The
@@ -104,7 +109,10 @@ permits virtual delivery trades, caps daily activity/exposure/risk, pauses
 intraday and derivatives until their data and mechanics are modelled, and has
 no autonomous trades recorded yet. Forward preparation now emits a gap-labelled
 manifest without appending decisions, executing trades or repairing the missing
-checkpoint. EXP-001 (SMA 20/60 crossover,
+checkpoint. Live-session execution is prepared_not_activated: it has an NSE
+09:15-15:30 IST/holiday guard, timestamp/freshness checks and a virtual fill
+planner, but no quote polling, scheduling, raw quote publication or real
+order path until the feed/cadence decision is approved. EXP-001 (SMA 20/60 crossover,
 NIFTY 50 universe, 2023-11-15 to 2026-11-13) has run once under rules specified
 before the run in docs/experiment.md (a local specification, not an
 independent registration). In that single local simulation the strategy
