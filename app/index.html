@@ -54,6 +54,7 @@
     <nav class="tabs" aria-label="Dashboard sections">
       <button class="tab active" data-tab="overview" type="button">Overview</button>
       <button class="tab" data-tab="strategies" type="button">Strategies</button>
+      <button class="tab" data-tab="autonomy" type="button">Autonomy</button>
       <button class="tab" data-tab="decisions" type="button">Decisions</button>
       <button class="tab" data-tab="positions" type="button">Positions</button>
       <button class="tab" data-tab="provenance" type="button">Provenance</button>
@@ -176,6 +177,59 @@
           <div><strong>2</strong><span>Use the same costs, slippage and execution timing.</span></div>
           <div><strong>3</strong><span>Keep historical, held-out and forward results separate.</span></div>
           <div><strong>4</strong><span>Publish losing and skipped runs with the same detail as winners.</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="autonomy" class="panel" aria-labelledby="autonomy-title" hidden>
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Autonomous paper lab</p>
+          <h2 id="autonomy-title">Risk rules before trades</h2>
+        </div>
+        <p class="muted">Policy v1 · effective 17 Nov 2026</p>
+      </div>
+
+      <div class="metrics">
+        <article class="metric">
+          <span>Daily activity</span>
+          <strong id="daily-activity">-</strong>
+          <small>No-trade is a valid day</small>
+        </article>
+        <article class="metric">
+          <span>Daily new exposure</span>
+          <strong id="daily-exposure">-</strong>
+          <small>Across all new virtual buys</small>
+        </article>
+        <article class="metric">
+          <span>Position risk</span>
+          <strong id="position-risk">-</strong>
+          <small id="position-cap">-</small>
+        </article>
+        <article class="metric">
+          <span>Overall halt</span>
+          <strong id="overall-halt">-</strong>
+          <small>Stops new trades; not a hard cap</small>
+        </article>
+      </div>
+
+      <div id="mode-cards" class="strategy-grid"></div>
+
+      <div class="grid two">
+        <article class="card">
+          <h3>Stop-loss rules</h3>
+          <ul id="stop-rules" class="check-list"></ul>
+        </article>
+        <article class="card">
+          <h3>Learning loop</h3>
+          <ul id="learning-loop" class="check-list"></ul>
+        </article>
+      </div>
+
+      <article class="notice">
+        <div>
+          <strong>No autonomous trades recorded yet.</strong>
+          <p>This policy is prospective. It does not repair the unrecovered 16 Nov checkpoint, create current holdings or claim that a stop will fill at its marked price. The first autonomous run must log decisions before execution.</p>
         </div>
       </article>
     </section>
@@ -305,7 +359,7 @@
   <noscript>
     <section class="noscript card">
       <h2>Core facts without JavaScript</h2>
-      <p>Paper trading only. No real-money trades. EXP-001 ran from 15 Nov 2023 to 13 Nov 2026 and ended at Rs 1,11,150.78 virtual equity (+11.15%) with Rs 14,627.16 max drawdown, 96 fills and 86 skipped decisions. The 16 Nov forward checkpoint is missing and is not shown as current.</p>
+      <p>Paper trading only. No real-money trades. EXP-001 ran from 15 Nov 2023 to 13 Nov 2026 and ended at Rs 1,11,150.78 virtual equity (+11.15%) with Rs 14,627.16 max drawdown, 96 fills and 86 skipped decisions. The 16 Nov forward checkpoint is missing and is not shown as current. Autonomy policy v1 allows only virtual delivery trades, caps daily activity and risk, uses non-guaranteed stops, and has no autonomous trades recorded yet.</p>
     </section>
   </noscript>
 
