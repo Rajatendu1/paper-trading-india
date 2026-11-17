@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Paper Trading India: a visual, honest view of a virtual Indian-stock trading experiment.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests">
+  <title>Paper Trading India - Live paper experiment dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to dashboard</a>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow"><span class="pulse"></span>Paper trading only</p>
+      <h1>Paper Trading India</h1>
+      <p class="subtitle">A transparent view of virtual strategies, decisions, positions and gaps.</p>
+    </div>
+    <div class="mode-card" aria-label="Trading mode">
+      <span>No real-money trades</span>
+      <strong>Virtual ledger</strong>
+      <small>No broker connection · no real orders</small>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="status-strip" aria-label="Experiment timeline">
+      <article>
+        <span>Experiment started</span>
+        <strong id="experiment-start">14 Nov 2026</strong>
+      </article>
+      <article>
+        <span>Historical simulation</span>
+        <strong id="historical-window">15 Nov 2023 → 13 Nov 2026</strong>
+      </article>
+      <article>
+        <span>Forward paper tracking</span>
+        <strong>16 Nov 2026</strong>
+      </article>
+      <article class="warning">
+        <span>Current state</span>
+        <strong>Checkpoint gap visible</strong>
+      </article>
+    </section>
+
+    <section class="notice" aria-label="Current data status">
+      <div>
+        <strong>Latest verified portfolio state: 13 Nov 2026.</strong>
+        <p>The 16 Nov forward-tracking checkpoint could not be recovered, so this dashboard does not present it as today's live state. Any continuation will be labelled as a new, gap-aware paper run.</p>
+      </div>
+      <span class="badge">No live trading</span>
+    </section>
+
+    <nav class="tabs" aria-label="Dashboard sections">
+      <button class="tab active" data-tab="overview" type="button">Overview</button>
+      <button class="tab" data-tab="strategies" type="button">Strategies</button>
+      <button class="tab" data-tab="decisions" type="button">Decisions</button>
+      <button class="tab" data-tab="positions" type="button">Positions</button>
+      <button class="tab" data-tab="provenance" type="button">Provenance</button>
+    </nav>
+
+    <section id="overview" class="panel active" aria-labelledby="overview-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Verified EXP-001 record</p>
+          <h2 id="overview-title">What happened</h2>
+        </div>
+        <p id="as-of" class="muted"></p>
+      </div>
+
+      <div class="metrics">
+        <article class="metric">
+          <span>Final virtual equity</span>
+          <strong id="final-equity">-</strong>
+          <small>13 Nov 2026 terminal mark</small>
+        </article>
+        <article class="metric positive">
+          <span>Net return</span>
+          <strong id="net-return">-</strong>
+          <small>After modeled costs</small>
+        </article>
+        <article class="metric">
+          <span>Max drawdown</span>
+          <strong id="max-dd">-</strong>
+          <small>Peak-to-trough virtual equity</small>
+        </article>
+        <article class="metric">
+          <span>Loss limit</span>
+          <strong id="loss-limit">-</strong>
+          <small>Never hit; not a hard cap</small>
+        </article>
+      </div>
+
+      <div class="grid two">
+        <article class="card chart-card">
+          <div class="card-head">
+            <div>
+              <h3>Strategy vs NIFTY 50</h3>
+              <p>Unmatched treatments - comparison, not measured alpha.</p>
+            </div>
+          </div>
+          <div id="comparison-chart" class="chart" role="img" aria-label="Bar chart comparing SMA strategy return and NIFTY 50 price return"></div>
+        </article>
+
+        <article class="card chart-card">
+          <div class="card-head">
+            <div>
+              <h3>Decision outcomes</h3>
+              <p>96 fills, 86 skipped for insufficient cash.</p>
+            </div>
+          </div>
+          <div id="outcome-chart" class="chart donut-wrap" role="img" aria-label="Donut chart of executed and skipped decisions"></div>
+        </article>
+      </div>
+
+      <article class="card chart-card wide">
+        <div class="card-head">
+          <div>
+            <h3>Decision activity</h3>
+            <p>Buy and sell decisions by month from the deterministic backfilled log.</p>
+          </div>
+        </div>
+        <div id="activity-chart" class="chart tall" role="img" aria-label="Stacked bar chart of monthly buy and sell decisions"></div>
+      </article>
+    </section>
+
+    <section id="strategies" class="panel" aria-labelledby="strategies-title" hidden>
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Algorithm lab</p>
+          <h2 id="strategies-title">One tested strategy, no invented leaderboard</h2>
+        </div>
+      </div>
+
+      <div class="strategy-grid">
+        <article class="strategy-card tested">
+          <span class="state">Verified historical run</span>
+          <h3>SMA 20/60 crossover</h3>
+          <p>Buy when the 20-day average crosses above the 60-day average; sell on the opposite cross.</p>
+          <dl>
+            <div><dt>Return</dt><dd id="strategy-return">-</dd></div>
+            <div><dt>Fills</dt><dd id="strategy-fills">-</dd></div>
+            <div><dt>Skipped</dt><dd id="strategy-skips">-</dd></div>
+            <div><dt>Drawdown</dt><dd id="strategy-dd">-</dd></div>
+          </dl>
+        </article>
+
+        <article class="strategy-card">
+          <span class="state pending">Comparison protocol</span>
+          <h3>Next algorithms</h3>
+          <p>Momentum, mean reversion and breakout candidates can be added only with pre-specified rules, matched costs and separate held-out or forward results.</p>
+          <ul class="check-list">
+            <li>No winner selected after seeing results</li>
+            <li>Same universe, costs and execution assumptions</li>
+            <li>Untested strategies show no performance numbers</li>
+          </ul>
+        </article>
+
+        <article class="strategy-card">
+          <span class="state pending">Not yet run</span>
+          <h3>Human judgement arm</h3>
+          <p>The human-in-the-loop comparison needs timestamped decisions before execution. AI discretion will not be labelled human judgement.</p>
+        </article>
+
+        <article class="strategy-card">
+          <span class="state pending">Not connected</span>
+          <h3>Copy-signal arm</h3>
+          <p>Only qualified, free and timestamped signals can be evaluated. No paid source, broker account or real order is authorized.</p>
+        </article>
+      </div>
+
+      <article class="card">
+        <h3>Fair-comparison rules</h3>
+        <div class="protocol">
+          <div><strong>1</strong><span>Freeze each rule before its test window.</span></div>
+          <div><strong>2</strong><span>Use the same costs, slippage and execution timing.</span></div>
+          <div><strong>3</strong><span>Keep historical, held-out and forward results separate.</span></div>
+          <div><strong>4</strong><span>Publish losing and skipped runs with the same detail as winners.</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="decisions" class="panel" aria-labelledby="decisions-title" hidden>
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Decision explorer</p>
+          <h2 id="decisions-title">Every recorded decision</h2>
+        </div>
+        <p class="muted">182 rows · deterministic backfill, not a contemporaneous log</p>
+      </div>
+
+      <div class="filters card">
+        <label>Search
+          <input id="decision-search" type="search" placeholder="Symbol, rule or rationale">
+        </label>
+        <label>Side
+          <select id="side-filter">
+            <option value="all">Buy + sell</option>
+            <option value="buy">Buy only</option>
+            <option value="sell">Sell only</option>
+          </select>
+        </label>
+        <label>Symbol
+          <select id="symbol-filter">
+            <option value="all">All symbols</option>
+          </select>
+        </label>
+        <output id="decision-count" aria-live="polite"></output>
+      </div>
+
+      <div class="table-card card">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>ID</th>
+              <th>Symbol</th>
+              <th>Side</th>
+              <th class="num">Qty</th>
+              <th>Rule</th>
+            </tr>
+          </thead>
+          <tbody id="decision-rows"></tbody>
+        </table>
+      </div>
+
+      <aside id="decision-detail" class="detail card" aria-live="polite">
+        <span class="state pending">Select a decision</span>
+        <p>Choose any row to inspect the exact recorded rationale and provenance.</p>
+      </aside>
+    </section>
+
+    <section id="positions" class="panel" aria-labelledby="positions-title" hidden>
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Latest verified state</p>
+          <h2 id="positions-title">Terminal holdings - 13 Nov 2026</h2>
+        </div>
+      </div>
+
+      <div class="grid two">
+        <article class="metric cash">
+          <span>Virtual cash</span>
+          <strong id="cash-value">-</strong>
+          <small>Historical simulation terminal cash</small>
+        </article>
+        <article class="metric">
+          <span>Open positions</span>
+          <strong id="open-count">-</strong>
+          <small>At the verified terminal mark</small>
+        </article>
+      </div>
+
+      <div class="grid two">
+        <article class="card">
+          <h3>Holdings</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Symbol</th><th class="num">Qty</th><th class="num">Value</th></tr></thead>
+              <tbody id="holding-rows"></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="card chart-card">
+          <h3>Terminal allocation</h3>
+          <div id="allocation-chart" class="chart" role="img" aria-label="Horizontal allocation bars for cash and open positions"></div>
+        </article>
+      </div>
+
+      <article class="notice">
+        <div>
+          <strong>This is not today's forward state.</strong>
+          <p>The four holdings above are the verified terminal holdings of the historical EXP-001 run. The unrecovered 16 Nov forward checkpoint means a current forward position list is not available yet.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="provenance" class="panel" aria-labelledby="provenance-title" hidden>
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Evidence and limits</p>
+          <h2 id="provenance-title">What the numbers do and do not prove</h2>
+        </div>
+      </div>
+
+      <div class="grid two">
+        <article class="card">
+          <h3>Verified sources</h3>
+          <ul id="source-list" class="source-list"></ul>
+        </article>
+        <article class="card">
+          <h3>Read before using any result</h3>
+          <ul id="caveat-list" class="caveat-list"></ul>
+        </article>
+      </div>
+
+      <article class="card integrity">
+        <h3>Integrity review</h3>
+        <p>The first run was independently replayed with 449 checks and zero failures. The review matched final equity, drawdown, fill count, skip count, terminal holdings, cost arithmetic and daily cash non-negativity. It also found and disclosed that the decision CSV is a deterministic backfill.</p>
+        <a href="https://github.com/Rajatendu1/paper-trading-india" target="_blank" rel="noopener">Open the public repository</a>
+      </article>
+    </section>
+  </main>
+
+  <noscript>
+    <section class="noscript card">
+      <h2>Core facts without JavaScript</h2>
+      <p>Paper trading only. No real-money trades. EXP-001 ran from 15 Nov 2023 to 13 Nov 2026 and ended at Rs 1,11,150.78 virtual equity (+11.15%) with Rs 14,627.16 max drawdown, 96 fills and 86 skipped decisions. The 16 Nov forward checkpoint is missing and is not shown as current.</p>
+    </section>
+  </noscript>
+
+  <footer>
+    <p>Paper simulation only. Not investment advice. No result here promises profit or reliable income.</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

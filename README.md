@@ -72,7 +72,8 @@ Set by the owner and public on purpose:
 papertrading/   config, costs, ledger (append-only log), data loaders, engine, strategy, report
 docs/           experiment.md - EXP-001 rules, specified before the first run
 experiments/    log.md - append-only register of every run and its result, good or bad
-scripts/        fetch_bhavcopy.py, run_experiment.py
+scripts/        fetch_bhavcopy.py, run_experiment.py, build_app_data.py
+app/            local static dashboard generated from committed EXP-001 records
 decisions/      log.csv - append-only decision record (written before execution)
 tests/          stdlib unittest suite, offline, synthetic data
 ```
@@ -81,6 +82,8 @@ tests/          stdlib unittest suite, offline, synthetic data
 
 ```bash
 python3 -m unittest discover -s tests      # run the test suite (offline)
+python3 scripts/build_app_data.py           # rebuild app/data/exp001.json
+python3 -m http.server 8000 --directory app # local-only dashboard preview
 python3 scripts/fetch_bhavcopy.py 2026-11-13   # cache one day's bhavcopy
 ```
 
@@ -89,9 +92,12 @@ No dependencies are needed for the core or the tests.
 
 ## Status
 
-v0.2.0-dev (LOCAL and preliminary; not investment evidence). Tracker core
-unit-tested (31 tests, offline). EXP-001 (SMA 20/60 crossover, NIFTY 50
-universe, 2023-11-15 to 2026-11-13) has run once under rules specified
+v0.2.0-dev (LOCAL and preliminary; not investment evidence). Tracker core and
+dashboard data checks are unit-tested (36 tests, offline). The static app is a
+local viewer over committed EXP-001 records; it is not a hosted production
+deployment. The unrecovered 16 Nov 2026 forward checkpoint is shown as a gap,
+not replaced with invented current positions. EXP-001 (SMA 20/60 crossover,
+NIFTY 50 universe, 2023-11-15 to 2026-11-13) has run once under rules specified
 before the run in docs/experiment.md (a local specification, not an
 independent registration). In that single local simulation the strategy
 returned +11.15% net of assumed costs while the NIFTY 50 price index
