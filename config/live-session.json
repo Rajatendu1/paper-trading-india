@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "status": "prepared_not_activated",
+  "exchange": "NSE",
+  "segment": "delivery",
+  "timezone": "Asia/Kolkata",
+  "normal_session": {
+    "open": "09:15",
+    "close": "15:30"
+  },
+  "holidays_2026": [
+    "2026-01-15",
+    "2026-01-26",
+    "2026-03-03",
+    "2026-03-26",
+    "2026-03-31",
+    "2026-04-03",
+    "2026-04-14",
+    "2026-05-01",
+    "2026-05-28",
+    "2026-06-26",
+    "2026-09-14",
+    "2026-10-02",
+    "2026-10-20",
+    "2026-11-10",
+    "2026-11-24",
+    "2026-12-25"
+  ],
+  "quote_policy": {
+    "max_quote_age_seconds": 120,
+    "allowed_exchanges": ["NSE"],
+    "source_delay_seconds": {
+      "NSE": 0,
+      "BSE": 900
+    },
+    "activation": "disabled_until_feed_cadence_decision",
+    "public_redistribution": "Do not publish raw live quote snapshots without the data source's permission."
+  },
+  "sources": {
+    "nse_market_timings": "https://www.nse.in/static/market-data/market-timings",
+    "nse_2026_holidays": "https://nsearchives.nseindia.com/content/circulars/CMTR71775.pdf",
+    "nse_2026_jan15_holiday": "https://nsearchives.nseindia.com/content/circulars/CMTR72260.pdf",
+    "yahoo_exchange_delays": "https://help.yahoo.com/kb/finance/SLN2310.html",
+    "nse_data_policy": "https://www.nse.in/static/market-data/nse-data-policy"
+  }
+}
