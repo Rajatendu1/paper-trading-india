@@ -47,3 +47,10 @@ bad. Entries are never edited or deleted; corrections are new entries.
 - Fill timing one session after each decision does not by itself prove the absence of lookahead; remaining bias concerns explicitly open: current-constituent universe selection (survivorship) and position sizing on adjusted prices.
 - decisions/log.csv rows with unsuffixed exp001-NNNN ids are a deterministic BACKFILL (see decisions/README.md), not contemporaneous records.
 - Run artifacts hashed for reproducibility in experiments/exp001-manifest.sha256 (data CSVs) and exp001-manifest.meta (code commit + recorded outputs).
+
+## AUTONOMY-POLICY-v1 2026-11-17 - prospective virtual risk controls (no run yet)
+- policy_path: config/autonomy.json
+- scope: virtual delivery paper trading only; no broker connection, account, payment or real orders.
+- controls: no-trade days allowed; max 2 new buys/day; max 20% of virtual equity in new daily exposure; max 10% per position; max 4 open positions; max 1% virtual equity risked per position; ATR-bounded stops; overall halt at Rs 40,000 virtual loss.
+- mode_status: delivery enabled; intraday, futures and options paused pending data, execution, leverage/margin and derivative-cost models.
+- status: specified before any autonomous forward run. No autonomous decisions, trades or results exist yet. The unrecovered 2026-11-16 forward checkpoint remains a gap and is not repaired by this policy.

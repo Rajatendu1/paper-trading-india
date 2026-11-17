@@ -26,6 +26,7 @@
     '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
   }[ch]));
   const pct = (value) => `${value > 0 ? '+' : ''}${Number(value).toFixed(2)}%`;
+  const limitPct = (value) => `${Number(value * 100).toFixed(0)}%`;
 
   function svgEl(tag, attrs = {}, text = '') {
     const node = document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -214,6 +215,38 @@
     `;
   }
 
+  function renderAutonomy(autonomy) {
+    const risk = autonomy.risk;
+    const stops = autonomy.stops;
+    setText('daily-activity', `${risk.max_new_buys_per_day} buys max`);
+    setText('daily-exposure', limitPct(risk.max_daily_new_exposure_pct));
+    setText('position-risk', `${limitPct(risk.per_trade_risk_pct)} risk`);
+    setText('position-cap', `${limitPct(risk.max_position_pct)} size · ${risk.max_open_positions} open max`);
+    setText('overall-halt', wholeInr.format(risk.max_loss_inr));
+
+    $('#mode-cards').innerHTML = Object.entries(autonomy.modes).map(([name, mode]) => {
+      const enabled = mode.status === 'enabled';
+      const detail = enabled ? mode.basis : `Missing: ${(mode.missing || []).join(', ')}`;
+      return `
+        <article class="strategy-card ${enabled ? 'tested' : ''}">
+          <span class="state ${enabled ? '' : 'pending'}">${esc(mode.status)}</span>
+          <h3>${esc(name)}</h3>
+          <p>${esc(detail)}</p>
+        </article>
+      `;
+    }).join('');
+
+    $('#stop-rules').innerHTML = [
+      `Initial stop: ${stops.atr_stop_multiple} x ATR(${stops.atr_window}) below the reference price, bounded to ${limitPct(stops.min_stop_pct)}-${limitPct(stops.max_stop_pct)}.`,
+      'Trailing stops may move upward after favorable closes; they never move down.',
+      stops.evaluation,
+      stops.limit
+    ].map((item) => `<li>${esc(item)}</li>`).join('');
+
+    $('#learning-loop').innerHTML = Object.values(autonomy.learning_loop)
+      .map((item) => `<li>${esc(item)}</li>`).join('');
+  }
+
   function renderDecisions(data) {
     const tbody = $('#decision-rows');
     const search = $('#decision-search');
@@ -282,6 +315,7 @@
     renderActivity(data.monthly_activity);
     renderHoldings(s);
     renderAllocation(s);
+    renderAutonomy(data.autonomy);
     renderDecisions(data);
     renderProvenance(data);
   }

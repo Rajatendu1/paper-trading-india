@@ -20,6 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DECISIONS = ROOT / "decisions" / "log.csv"
 LOG = ROOT / "experiments" / "log.md"
 OUT = ROOT / "app" / "data" / "exp001.json"
+AUTONOMY = ROOT / "config" / "autonomy.json"
 
 
 def scalar(text: str, key: str) -> str:
@@ -90,6 +91,7 @@ def main() -> None:
             "open_positions_at_end": open_positions,
             "open_position_values_inr": open_position_values,
         },
+        "autonomy": json.loads(AUTONOMY.read_text()),
         "strategy": {
             "id": "sma-cross-20-60",
             "name": "SMA 20/60 crossover",
@@ -123,6 +125,8 @@ def main() -> None:
             "experiment_register": "experiments/log.md",
             "integrity_review": "scripts/verify_exp001.py",
             "manifest": "experiments/exp001-manifest.sha256",
+            "autonomy_policy": "config/autonomy.json",
+            "autonomy_rules": "docs/autonomy.md",
         },
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)

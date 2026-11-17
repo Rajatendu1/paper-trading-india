@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "effective_on": "2026-11-17",
+  "scope": "Virtual delivery paper trading only; no broker connection and no real orders.",
+  "risk": {
+    "max_loss_inr": 40000,
+    "max_daily_new_exposure_pct": 0.20,
+    "max_new_buys_per_day": 2,
+    "max_position_pct": 0.10,
+    "max_open_positions": 4,
+    "per_trade_risk_pct": 0.01
+  },
+  "stops": {
+    "atr_window": 14,
+    "atr_stop_multiple": 1.5,
+    "min_stop_pct": 0.04,
+    "max_stop_pct": 0.08,
+    "evaluation": "Evaluate after each daily close; a breach creates a sell decision for the next trading day's open.",
+    "limit": "A stop is not a guaranteed fill or hard floor; overnight gaps can cross it."
+  },
+  "modes": {
+    "delivery": {
+      "status": "enabled",
+      "basis": "Daily OHLCV data, a delivery cost model and no leverage are implemented."
+    },
+    "intraday": {
+      "status": "paused",
+      "missing": [
+        "intraday bars",
+        "same-day execution model",
+        "intraday square-off and liquidity assumptions"
+      ]
+    },
+    "futures": {
+      "status": "paused",
+      "missing": [
+        "contract and expiry data",
+        "margin and leverage model",
+        "rollover rules",
+        "derivative cost model"
+      ]
+    },
+    "options": {
+      "status": "paused",
+      "missing": [
+        "option chain and expiry data",
+        "premium, Greeks and liquidity model",
+        "assignment and margin rules",
+        "derivative cost model"
+      ]
+    }
+  },
+  "learning_loop": {
+    "record": "Log every decision and stop before execution, including no-trade days and skipped signals.",
+    "review": "Compare net return, drawdown, skips and risk against suitable benchmarks.",
+    "change_control": "Modify a strategy only as a new pre-specified experiment version; never rewrite rules after seeing results."
+  }
+}
