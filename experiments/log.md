@@ -54,3 +54,11 @@ bad. Entries are never edited or deleted; corrections are new entries.
 - controls: no-trade days allowed; max 2 new buys/day; max 20% of virtual equity in new daily exposure; max 10% per position; max 4 open positions; max 1% virtual equity risked per position; ATR-bounded stops; overall halt at Rs 40,000 virtual loss.
 - mode_status: delivery enabled; intraday, futures and options paused pending data, execution, leverage/margin and derivative-cost models.
 - status: specified before any autonomous forward run. No autonomous decisions, trades or results exist yet. The unrecovered 2026-11-16 forward checkpoint remains a gap and is not repaired by this policy.
+
+## FORWARD-PREP-2026-11-17 - gap-labelled preparation, no decisions logged or executed
+- manifest: experiments/forward-prep-2026-11-17.json
+- source_state: verified EXP-001 terminal state at 2026-11-13 (cash Rs 3,264.68; ADANIPORTS 14, BSE 7, DRREDDY 21, TECHM 14).
+- data: raw Yahoo Finance daily bars through 2026-11-16, fetched locally for preparation; no NSE or Yahoo data redistributed.
+- result: 0 prepared decisions. Buy signals for INDIGO, LT, RELIANCE and SBIN were rejected by policy caps because available virtual cash was only Rs 3,264.68 before costs.
+- planning_equity_reconstructed_inr: 110783.98 from the 2026-11-13 state and 2026-11-16 closes. This is preparation arithmetic, not a contemporaneous checkpoint mark.
+- gap: the missing 2026-11-16 forward checkpoint is not repaired. No autonomous trades exist yet; decisions/log.csv was not appended and no order was placed.

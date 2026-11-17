@@ -69,11 +69,11 @@ Set by the owner and public on purpose:
 ## Layout
 
 ```
-papertrading/   config, costs, ledger (append-only log), data loaders, engine, strategy, report, autonomy controls
+papertrading/   config, costs, ledger (append-only log), data loaders, engine, strategy, report, autonomy controls, forward preparation
 config/         autonomy.json - prospective virtual risk policy
-docs/           experiment.md - EXP-001 rules, specified before the first run; autonomy.md - autonomous paper-lab policy
+docs/           experiment.md - EXP-001 rules, specified before the first run; autonomy.md - autonomous paper-lab policy; forward.md - gap-labelled continuation boundary
 experiments/    log.md - append-only register of every run and its result, good or bad
-scripts/        fetch_bhavcopy.py, run_experiment.py, build_app_data.py
+scripts/        fetch_bhavcopy.py, run_experiment.py, build_app_data.py, prepare_forward_run.py
 app/            static dashboard generated from committed EXP-001 records and hosted with GitHub Pages
 decisions/      log.csv - append-only decision record (written before execution)
 tests/          stdlib unittest suite, offline, synthetic data
@@ -94,7 +94,7 @@ No dependencies are needed for the core or the tests.
 ## Status
 
 v0.2.0-dev (LOCAL and preliminary; not investment evidence). Tracker core and
-dashboard data checks are unit-tested (44 tests, offline). The static app is
+dashboard data checks are unit-tested (51 tests, offline). The static app is
 hosted with GitHub Pages at
 https://rajatendu1.github.io/paper-trading-india/app/ as a viewer over
 committed EXP-001 records; it is not a production trading system. The
@@ -102,7 +102,9 @@ unrecovered 16 Nov 2026 forward checkpoint is shown as a gap, not replaced
 with invented current positions. Autonomy policy v1 is prospective only: it
 permits virtual delivery trades, caps daily activity/exposure/risk, pauses
 intraday and derivatives until their data and mechanics are modelled, and has
-no autonomous trades recorded yet. EXP-001 (SMA 20/60 crossover,
+no autonomous trades recorded yet. Forward preparation now emits a gap-labelled
+manifest without appending decisions, executing trades or repairing the missing
+checkpoint. EXP-001 (SMA 20/60 crossover,
 NIFTY 50 universe, 2023-11-15 to 2026-11-13) has run once under rules specified
 before the run in docs/experiment.md (a local specification, not an
 independent registration). In that single local simulation the strategy

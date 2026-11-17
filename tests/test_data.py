@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from papertrading.data import bhavcopy_url, load_bhavcopy_csv
+from papertrading.data import _scalar, bhavcopy_url, load_bhavcopy_csv
 from datetime import date
 
 NEW_FORMAT = (
@@ -56,6 +56,14 @@ class TestBhavcopyParser(unittest.TestCase):
             bhavcopy_url(date(2026, 11, 13)),
             "https://nsearchives.nseindia.com/content/cm/"
             "BhavCopy_NSE_CM_0_0_0_20261113_F_0000.csv.zip")
+
+    def test_yfinance_scalar_compatibility(self):
+        class Wrapped:
+            def __init__(self, value):
+                self.iloc = [value]
+
+        self.assertEqual(_scalar(12.5), 12.5)
+        self.assertEqual(_scalar(Wrapped(12.5)), 12.5)
 
 
 if __name__ == "__main__":
