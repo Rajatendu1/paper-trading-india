@@ -68,6 +68,7 @@ class AppDataTests(unittest.TestCase):
         self.assertIn("No real-money trades", html)
         self.assertIn("Checkpoint gap visible", html)
         self.assertIn("No autonomous trades recorded yet", html)
+        self.assertIn("Live-session execution: prepared, not activated", html)
         self.assertIn("script-src 'self'", html)
         self.assertNotIn("https://cdn", html)
         self.assertNotIn("fetch('http", js)
