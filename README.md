@@ -9,16 +9,6 @@ promise of profit or reliable income.
 
 ## Parameters
 
-
-A paper-trading experiment for short-term Indian stocks. **Simulation only:
-no real money, no broker connection, no real orders, ever.** Every trade in
-this repo is virtual.
-
-Nothing here is investment advice, and no result from this experiment is a
-promise of profit or reliable income.
-
-## Parameters
-
 Set by the owner and public on purpose:
 
 - **Virtual starting capital:** Rs 1,00,000
