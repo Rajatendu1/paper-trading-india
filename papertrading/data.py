@@ -122,6 +122,13 @@ def fetch_bhavcopy(d: date, cache_dir: str | Path = "data") -> Path:
     return target
 
 
+def _scalar(value):
+    """Return a plain scalar from pandas' current Series-wrapped row values."""
+    if hasattr(value, "iloc"):
+        value = value.iloc[0]
+    return value
+
+
 def load_yfinance(symbol: str, start: str, end: str) -> list[Bar]:
     """Daily bars via yfinance (optional dependency, unofficial source).
 
@@ -138,8 +145,10 @@ def load_yfinance(symbol: str, start: str, end: str) -> list[Bar]:
     for idx, row in df.iterrows():
         bars.append(Bar(
             date=idx.date().isoformat(),
-            open=float(row["Open"]), high=float(row["High"]),
-            low=float(row["Low"]), close=float(row["Close"]),
-            volume=int(row["Volume"] or 0),
+            open=float(_scalar(row["Open"])),
+            high=float(_scalar(row["High"])),
+            low=float(_scalar(row["Low"])),
+            close=float(_scalar(row["Close"])),
+            volume=int(_scalar(row["Volume"]) or 0),
         ))
     return bars
